@@ -33,6 +33,10 @@
   --barca-garnet-2: #c93a6c;
   --gold: #e0a92c;
   --gold-soft: #f0c452;
+  --tracking-display: .08em;
+  /* tinta di atas warna solid: rasio dihitung supaya lolos AA (>=4.5:1) */
+  --on-gold: #14181f;
+  --on-muted: #0b0e13;
   --accent: var(--barca-garnet);
   --accent-ink: #ffffff;
 
@@ -81,6 +85,8 @@ body[data-theme="light"] {
   --txt: #14181f; --txt-2: #4a5260; --txt-3: #5f6773;
   --barca-blue: #0a4a8a; --barca-garnet: #8c1440; --accent: #8c1440;
   --gold: #8a6114; --gold-soft: #6d4c0d;
+  --on-gold: #ffffff;
+  --on-muted: #ffffff;
   --ok: #1b7a4f; --warn: #8a6114; --err: #9e2b24; --info: #1a5f96;
   --shadow: 0 12px 26px -18px rgba(20,24,31,.4);
   --hero-grad: none;
@@ -131,7 +137,7 @@ body[data-theme="light"] .topbar { background: var(--bg-1); }
 .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .crest { width: 36px; height: 42px; flex: none; }
 .brand-txt { min-width: 0; }
-.brand-txt h1 { margin: 0; font-family: var(--font-display); font-size: 26px; letter-spacing: .02em; font-weight: 800;
+.brand-txt h1 { margin: 0; font-family: var(--font-display); font-size: 26px; letter-spacing: var(--tracking-display); font-weight: 800;
   text-transform: uppercase; line-height: .96; color: var(--txt); }
 .brand-txt h1 em { font-style: normal; color: var(--barca-garnet); }
 body[data-theme="light"] .brand-txt h1 { color: var(--barca-blue); }
@@ -174,7 +180,7 @@ select.tz:hover { border-color: var(--stroke-strong); }
 .icon-btn svg { width: 18px; height: 18px; }
 .badge-count {
   position: absolute; top: -5px; right: -5px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px;
-  background: var(--gold); color: #14181f; font-size: 10.5px; font-weight: 800; font-variant-numeric: tabular-nums;
+  background: var(--gold); color: var(--on-gold); font-size: 10.5px; font-weight: 800; font-variant-numeric: tabular-nums;
   display: grid; place-items: center; border: 2px solid var(--bg-0);
 }
 .badge-count[hidden] { display: none; }
@@ -211,11 +217,11 @@ select.tz:hover { border-color: var(--stroke-strong); }
   font-weight: 800; letter-spacing: .12em; text-transform: uppercase; border: 1px solid var(--stroke-strong); background: var(--card-2); color: var(--txt); }
 .tag.live { background: var(--err); border-color: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.28); }
 .tag.comp { background: var(--barca-blue); border-color: transparent; color: #fff; }
-.tag.gold { background: var(--gold); color: #14181f; border-color: transparent; }
+.tag.gold { background: var(--gold); color: var(--on-gold); border-color: transparent; }
 .tag.ghost { background: transparent; }
 /* LIVE tidak berdenyut: indikator status harus terbaca diam (tanpa gerak berulang) */
 
-.hero-title { margin: 12px 0 4px; font-family: var(--font-display); font-size: clamp(26px, 4.6vw, 46px); font-weight: 800; letter-spacing: .002em; line-height: 1.02; text-transform: uppercase; }
+.hero-title { margin: 12px 0 4px; font-family: var(--font-display); font-size: clamp(26px, 4.6vw, 46px); font-weight: 800; letter-spacing: var(--tracking-display); line-height: 1.04; text-transform: uppercase; }
 .hero-sub { margin: 0; color: var(--txt-2); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 14px; }
 .hero-sub .ico { opacity: .7; }
 
@@ -267,9 +273,9 @@ body[data-theme="light"] .goal-line .min { color: var(--barca-garnet); }
 .goal-line.own .who { color: var(--err); }
 
 .form { display: flex; gap: 5px; }
-.fdot { width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center; font-size: 10.5px; font-weight: 800; color: #fff; }
+.fdot { width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center; font-size: 10.5px; font-weight: 800; color: var(--accent-ink); }
 .fdot.W { background: var(--ok); }
-.fdot.D { background: var(--txt-3); }
+.fdot.D { background: var(--txt-3); color: var(--on-muted); }
 .fdot.L { background: var(--err); }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
@@ -284,7 +290,7 @@ body[data-theme="light"] .goal-line .min { color: var(--barca-garnet); }
 .btn:active { transform: translateY(0); }
 .btn svg { width: 15px; height: 15px; flex: none; }
 .btn.primary { background: var(--accent); border-color: transparent; color: var(--accent-ink); font-weight: 800; }
-.btn.gold { background: var(--gold); border-color: transparent; color: #14181f; font-weight: 800; }
+.btn.gold { background: var(--gold); border-color: transparent; color: var(--on-gold); font-weight: 800; }
 .btn.sm { padding: 8px 12px; font-size: 11.5px; border-radius: var(--radius-xs); }
 .btn.on { border-color: var(--gold); color: var(--gold-soft); }
 .btn[disabled] { opacity: .45; pointer-events: none; }
@@ -327,7 +333,7 @@ body[data-theme="light"] .goal-line .min { color: var(--barca-garnet); }
 .grid > *, .split > *, .card, .news-grid > * { min-width: 0; }
 .tablewrap { max-width: 100%; }
 .card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-.card-head h3 { margin: 0; font-family: var(--font-display); font-size: 19px; letter-spacing: .03em; text-transform: uppercase; font-weight: 700; color: var(--txt); }
+.card-head h3 { margin: 0; font-family: var(--font-display); font-size: 19px; letter-spacing: var(--tracking-display); text-transform: uppercase; font-weight: 700; color: var(--txt); }
 .card-head .spacer { margin-left: auto; }
 .card-head .hint { font-size: 11px; color: var(--txt-3); }
 .stat-num { font-family: var(--font-display); font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: 0; line-height: .92; font-variant-numeric: tabular-nums; }
@@ -411,7 +417,7 @@ table.st tr.rel td.pos { color: var(--err); }
 @media (min-width: 620px) { .news-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (min-width: 980px) { .news-grid { grid-template-columns: 1.55fr minmax(0,1fr) minmax(0,1fr); } }
 /* berita utama = jangkar: melebar 2 kolom, judul display besar, thumb tinggi */
-.news-grid > :first-child .news-body h4 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .01em; font-weight: 800; }
+.news-grid > :first-child .news-body h4 { font-family: var(--font-display); letter-spacing: -.005em; font-weight: 800; text-wrap: balance; }
 @media (min-width: 620px) {
   .news-grid > :first-child { grid-column: span 2; }
   .news-grid > :first-child .news-body h4 { font-size: 27px; line-height: 1.04; -webkit-line-clamp: 3; line-clamp: 3; }
@@ -505,7 +511,7 @@ input[type="search"].field::-webkit-search-cancel-button { filter: invert(.6); }
 .modal-bd { position: fixed; inset: 0; z-index: 300; background: color-mix(in srgb, var(--bg-0) 78%, transparent); display: grid; place-items: center; padding: 16px; animation: fade var(--t) var(--ease); }
 .modal { width: min(720px, 100%); max-height: 86vh; overflow: auto; border-radius: var(--radius); border: 1px solid var(--stroke-strong);
   border-top: 3px solid var(--barca-garnet); background: var(--bg-1); box-shadow: 0 30px 60px -30px #000; padding: 20px; }
-.modal h3 { margin: 0 0 4px; font-family: var(--font-display); font-size: 26px; line-height: 1.04; text-transform: uppercase; font-weight: 800; }
+.modal h3 { margin: 0 0 4px; font-family: var(--font-display); font-size: 26px; line-height: 1.04; text-transform: uppercase; letter-spacing: var(--tracking-display); font-weight: 800; }
 .modal .sub { color: var(--txt-3); font-size: 12px; margin-bottom: 14px; }
 .modal-close { float: right; }
 .mstats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-top: 12px; }
@@ -695,7 +701,7 @@ svg [stroke], svg.ic, svg.ico, .icon-btn svg, .tab svg, .btn svg, .mini-btn svg,
   <div class="statusbar" id="statusbar" role="status" aria-live="polite"></div>
 
   <!-- ====== HERO ====== -->
-  <section class="hero" id="hero" aria-label="Laga utama"></section>
+  <section class="hero" id="hero" data-od-id="hero" aria-label="Laga utama"></section>
 
   <!-- ====== TABS ====== -->
   <nav class="tabs" id="tabs" aria-label="Navigasi utama">
@@ -710,9 +716,9 @@ svg [stroke], svg.ic, svg.ico, .icon-btn svg, .tab svg, .btn svg, .mini-btn svg,
 
   <!-- ====== PANELS ====== -->
   <div id="panels">
-    <section class="panel active" data-panel="home" id="p-home"></section>
+    <section class="panel active" data-panel="home" id="p-home" data-od-id="panel-home"></section>
 
-    <section class="panel" data-panel="schedule" id="p-schedule">
+    <section class="panel" data-panel="schedule" id="p-schedule" data-od-id="panel-schedule">
       <div class="card">
         <div class="card-head">
           <h3>Jadwal Pertandingan</h3>
@@ -733,7 +739,7 @@ svg [stroke], svg.ic, svg.ico, .icon-btn svg, .tab svg, .btn svg, .mini-btn svg,
       </div>
     </section>
 
-    <section class="panel" data-panel="results" id="p-results">
+    <section class="panel" data-panel="results" id="p-results" data-od-id="panel-results">
       <div class="card">
         <div class="card-head">
           <h3>Hasil &amp; Performa</h3>
@@ -755,7 +761,7 @@ svg [stroke], svg.ic, svg.ico, .icon-btn svg, .tab svg, .btn svg, .mini-btn svg,
       </div>
     </section>
 
-    <section class="panel" data-panel="table" id="p-table">
+    <section class="panel" data-panel="table" id="p-table" data-od-id="panel-table">
       <div class="card">
         <div class="card-head">
           <h3 id="tableTitle">Klasemen La Liga</h3>
@@ -774,7 +780,7 @@ svg [stroke], svg.ic, svg.ico, .icon-btn svg, .tab svg, .btn svg, .mini-btn svg,
       </div>
     </section>
 
-    <section class="panel" data-panel="news" id="p-news">
+    <section class="panel" data-panel="news" id="p-news" data-od-id="panel-news">
       <div class="card">
         <div class="card-head">
           <h3>Berita &amp; Kabar Terbaru</h3>
@@ -794,7 +800,7 @@ svg [stroke], svg.ic, svg.ico, .icon-btn svg, .tab svg, .btn svg, .mini-btn svg,
       </div>
     </section>
 
-    <section class="panel" data-panel="alerts" id="p-alerts">
+    <section class="panel" data-panel="alerts" id="p-alerts" data-od-id="panel-alerts">
       <div class="card">
         <div class="card-head">
           <h3>Pusat Notifikasi</h3>
@@ -829,7 +835,7 @@ svg [stroke], svg.ic, svg.ico, .icon-btn svg, .tab svg, .btn svg, .mini-btn svg,
       </div>
     </section>
 
-    <section class="panel" data-panel="settings" id="p-settings">
+    <section class="panel" data-panel="settings" id="p-settings" data-od-id="panel-settings">
       <div class="split">
         <div class="grid">
           <div class="card">
